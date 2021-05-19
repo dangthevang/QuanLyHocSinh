@@ -13,8 +13,12 @@ public class DeleteStudent {
 
     public void deleteStudent(String MSSV) {
         try{
-            String sql = "delete from ThongTinChuongTrinh where MSSV=?";
+            String sql = "delete from ChuongTrinhCuaHocSinh where MSSV=?";
             PreparedStatement stmt = this.getConn().prepareStatement(sql);
+            stmt.setString(1,MSSV);
+            stmt.executeUpdate();
+            sql = "delete from HocPhanCuaHocSinh where MSSV=?";
+            stmt = this.getConn().prepareStatement(sql);
             stmt.setString(1,MSSV);
             stmt.executeUpdate();
             sql = "delete from ThongTinHocSinh where MSSV=?";

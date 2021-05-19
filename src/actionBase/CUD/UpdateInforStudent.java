@@ -11,13 +11,14 @@ public class UpdateInforStudent {
     Connection conn = connect.ConnectSQL();
     public Connection getConn(){ return conn; }
     public void updateStudent(String MSSV, String HoTen,String Diachi,String SoDienThoai) {
-        String sql = "UPDATE ThongTinHocSinh SET HoTen = ?,DiaChi = ?, SoDienThoai = ? WHERE MSSV = ?";
+        String sql = "UPDATE ThongTinHocSinh SET MSSV = ?, HoTen = ?,DiaChi = ?, SoDienThoai = ? WHERE MSSV = ?";
         try {
             PreparedStatement stmt = this.getConn().prepareStatement(sql);
-            stmt.setString(1,HoTen);
-            stmt.setString(2,Diachi);
-            stmt.setString(3,SoDienThoai);
-            stmt.setString(3,MSSV);
+            stmt.setString(1,MSSV);
+            stmt.setString(2,HoTen);
+            stmt.setString(3,Diachi);
+            stmt.setString(4,SoDienThoai);
+            stmt.setString(5,MSSV);
             stmt.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

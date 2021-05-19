@@ -12,7 +12,7 @@ public class CreateStudent {
     Connection conn = connect.ConnectSQL();
     public Connection getConn(){ return conn; }
     public Student createStudent(String MSSV, String HoTen, String DiaChi, String SoDienThoai) {
-        var sql ="INSERT INTO ThongTinHocSinh VALUES (?,?,?,?,?); ";
+        var sql ="INSERT INTO ThongTinHocSinh VALUES (?,?,?,?); ";
         PreparedStatement stmt = null;
         Student student = new Student();
         try {
